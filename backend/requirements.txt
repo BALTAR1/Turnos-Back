@@ -1,6 +1,0 @@
-Flask
-flask-cors
-flask_sqlalchemy
-flask_mail
-flask_login
-werkzeug
