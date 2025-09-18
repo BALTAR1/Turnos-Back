@@ -3,8 +3,14 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 from flask_login import LoginManager
-from routes import routes
-from models import db
+try:
+    # Try relative imports first (for gunicorn/module loading)
+    from .routes import routes
+    from .models import db
+except ImportError:
+    # Fall back to absolute imports (for direct execution)
+    from routes import routes
+    from models import db
 
 app = Flask(__name__)
 CORS(app)

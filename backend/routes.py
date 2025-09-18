@@ -1,7 +1,10 @@
 from flask import Blueprint, render_template, request, jsonify, redirect, url_for, flash
 from flask_login import login_user, login_required, logout_user, current_user
 from flask_mail import Message
-from models import db, Usuario, Turno
+try:
+    from .models import db, Usuario, Turno
+except ImportError:
+    from models import db, Usuario, Turno
 
 routes = Blueprint('routes', __name__)
 
